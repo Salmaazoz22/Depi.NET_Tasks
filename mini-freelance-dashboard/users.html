@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Users – Mini Freelance Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="container header">
+    <h1>👥 Users</h1>
+    <nav class="header-actions">
+      <a class="btn" href="index.html">🏠 Dashboard</a>
+      <a class="btn" href="posts.html">📝 Posts</a>
+      <button id="themeToggle" class="btn">🌗 Toggle Theme</button>
+    </nav>
+  </header>
+
+  <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <span>Loading...</span>
+  </div>
+
+  <main class="container">
+    <table id="usersTable" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>⭐</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Company</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal hidden" id="userModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">User</h3>
+        <button class="btn btn-icon" id="closeModal">✖</button>
+      </div>
+      <div class="modal-body">
+        <form id="userForm">
+          <input type="hidden" name="id" />
+          <div class="form-row">
+            <label>Name</label>
+            <input type="text" name="name" required />
+          </div>
+          <div class="form-row">
+            <label>Email</label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="form-row">
+            <label>Phone</label>
+            <input type="text" name="phone" required />
+          </div>
+          <div class="form-row">
+            <label>Company</label>
+            <input type="text" name="company" required />
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="btn">💾 Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery + libs -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/users.js"></script>
+</body>
+</html>

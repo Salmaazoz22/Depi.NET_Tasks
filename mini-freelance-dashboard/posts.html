@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Posts – Mini Freelance Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="container header">
+    <h1>📝 Posts</h1>
+    <nav class="header-actions">
+      <a class="btn" href="index.html">🏠 Dashboard</a>
+      <a class="btn" href="users.html">👥 Users</a>
+      <button id="themeToggle" class="btn">🌗 Toggle Theme</button>
+    </nav>
+  </header>
+
+  <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <span>Loading...</span>
+  </div>
+
+  <main class="container">
+    <div class="toolbar">
+      <button id="addPost" class="btn">➕ Add Post</button>
+    </div>
+    <table id="postsTable" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Body</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <!-- Post Modal -->
+  <div class="modal hidden" id="postModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="postModalTitle">Add Post</h3>
+        <button class="btn btn-icon" id="closePostModal">✖</button>
+      </div>
+      <div class="modal-body">
+        <form id="postForm">
+          <input type="hidden" name="id" />
+          <div class="form-row">
+            <label>Title</label>
+            <input type="text" name="title" required />
+          </div>
+          <div class="form-row">
+            <label>Body</label>
+            <textarea name="body" rows="5" required></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="btn">💾 Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments Modal -->
+  <div class="modal hidden" id="commentsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Comments</h3>
+        <button class="btn btn-icon" id="closeComments">✖</button>
+      </div>
+      <div class="modal-body">
+        <ul id="commentsList" class="comments"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/posts.js"></script>
+</body>
+</html>

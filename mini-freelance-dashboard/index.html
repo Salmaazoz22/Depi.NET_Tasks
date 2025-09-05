@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Freelance Dashboard</title>
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-b7fSx3YpOZ0M2Nq6urcQ1eX3lWpwYdZ1ZZ+j6A1Jg5qB9rC5d2Z8S0eTj7dK5x6V8zqO8N5sOZbGZ7bG9j3j1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Toastr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-3pIir5y6S4j3wPZK0hAqJqvQk5FDW1XHlzTH0jzZMfjNV8iPBUFeEdVt8bJHPsuacF6N3K8m2bW6xZ9nZM2T9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <!-- App styles -->
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <header class="container header">
+    <h1 class="animate__animated animate__fadeInDown">📊 Mini Freelance Dashboard</h1>
+    <div class="header-actions">
+      <button id="themeToggle" class="btn">🌗 Toggle Theme</button>
+    </div>
+  </header>
+
+  <!-- Loader -->
+  <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <span>Loading...</span>
+  </div>
+
+  <main class="container">
+    <nav class="nav">
+      <a class="chip" href="users.html">👥 Users</a>
+      <a class="chip" href="posts.html">📝 Posts</a>
+    </nav>
+
+    <section class="grid">
+      <div class="card animate__animated animate__fadeInUp">
+        <h3>Users</h3>
+        <div class="stat" id="statUsers">—</div>
+      </div>
+      <div class="card animate__animated animate__fadeInUp animate__delay-1s">
+        <h3>Posts</h3>
+        <div class="stat" id="statPosts">—</div>
+      </div>
+      <div class="card animate__animated animate__fadeInUp animate__delay-2s">
+        <h3>Comments</h3>
+        <div class="stat" id="statComments">—</div>
+      </div>
+      
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>Made with HTML, CSS, jQuery, DataTables, Toastr, Animate.css, JSONPlaceholder.</small>
+  </footer>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Toastr -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9MdiV+ZC2f0GqORdzdrIW6DCeA44vQ0mKQGZ5xC2QF1ZC5hC5Q0Sy61xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- DataTables -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <!-- App JS -->
+  <script src="assets/app.js"></script>
+  <script>
+    $(async function() {
+      showLoader(true);
+      try {
+        const [users, posts, comments] = await Promise.all([
+          fetchJSON('https://jsonplaceholder.typicode.com/users'),
+          fetchJSON('https://jsonplaceholder.typicode.com/posts'),
+          fetchJSON('https://jsonplaceholder.typicode.com/comments')
+        ]);
+        $('#statUsers').text(users.length);
+        $('#statPosts').text(posts.length);
+        $('#statComments').text(comments.length);
+        toastr.success('Dashboard loaded successfully 🎉');
+      } catch (e) {
+        console.error(e);
+        toastr.error('Failed to load stats');
+      } finally {
+        showLoader(false);
+      }
+    });
+  </script>
+</body>
+</html>

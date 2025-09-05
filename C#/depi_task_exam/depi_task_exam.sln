@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "depi_task_exam", "depi_task_exam.csproj", "{DBC4974E-5895-470C-ABD2-A9FC6C70F7AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBC4974E-5895-470C-ABD2-A9FC6C70F7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBC4974E-5895-470C-ABD2-A9FC6C70F7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBC4974E-5895-470C-ABD2-A9FC6C70F7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBC4974E-5895-470C-ABD2-A9FC6C70F7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF49DA4F-B31F-4460-830B-6914FE39A440}
+	EndGlobalSection
+EndGlobal
